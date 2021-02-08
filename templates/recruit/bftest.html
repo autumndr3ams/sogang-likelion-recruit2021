@@ -1,0 +1,72 @@
+<html>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        // 점수 계산방법 다시 설정하기
+        $(document).ready(function(){            
+            $("#front").click(function(){ 
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'bftest' %}",
+                    data: {
+                        'csrfmiddlewaretoken' : '{{csrf_token}}',
+                        'q-pk' : $("#pk").val(),
+                        'choice': 'front',
+                    },
+                    dataType: "json",
+                    success: function(response){
+                        $("#pk").val(response.pk);
+                        $("#front").val(response.front);
+                        $("#back").val(response.back);
+                        $('.question').text(response.question);
+                    },
+                    error: function(request, status, error){
+                        //alert(request.status);
+                        var final_score = $("#score").val();
+                        alert("bfscore = "+final_score);
+                        window.location.replace("result/?score="+final_score);                                   
+                    },
+                });
+            });
+
+            $("#back").click(function(){
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'bftest' %}",
+                    data: {
+                        'csrfmiddlewaretoken' : '{{csrf_token}}',
+                        'q-pk' : $("#pk").val(),
+                        'choice': 'back',
+                    },
+                    dataType: "json",
+                    success: function(response){
+                        $("#pk").val(response.pk);
+                        $("#front").val(response.front);
+                        $("#back").val(response.back);
+                        $('.question').text(response.question);
+                        $("#score").val(Number($("#score").val())+1);
+                    },
+                    error: function(request, status, error){
+                        //alert(request.status);
+                        var final_score = Number($("#score").val())+1;
+                        alert("bfscore = "+final_score);
+                        window.location.replace("result/?score="+final_score);                 
+                    },
+                });
+                });
+        });
+    </script>
+
+    <head></head>
+    <body>
+        {%if q%}
+            <div class="bf-question">
+                <p class="question">{{q.question}}</p>
+                <input id="pk" value="{{q.pk}}" style="display: none;">
+                <input id="score" value="0" style="display: none;">
+                <input id="front" type="button" value="{{q.front_ans}}">
+                <input id="back" type="button" value="{{q.back_ans}}">
+            </div>
+        {%endif%}
+    </body>
+
+</html>
