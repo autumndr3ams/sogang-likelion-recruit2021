@@ -44,3 +44,13 @@ class BFResultView(TemplateView):
             'score': request.GET.get('score'),
         }
         return self.render_to_response(context)
+
+# 히스토리 페이지 뷰
+class HistoryView(View):
+    def get(self, request):
+        return render(request,'recruit/history.html')
+
+# 서강사자 페이지 뷰
+class SglionInfoView(View):
+    def get(self, request):
+        return render(request,'recruit/sglioninfo.html')
