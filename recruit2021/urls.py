@@ -20,6 +20,6 @@ import recruit.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',recruit.views.HomeView.as_view(),name="home"),
-    path('bftest/',recruit.views.bftest,name='bftest'),
+    path('bftest/',recruit.views.BFTestView.as_view(),name='bftest'),
     path('bftest/result/',recruit.views.BFResultView.as_view(),name="bfresult"),
 ]

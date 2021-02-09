@@ -22,7 +22,7 @@
                     error: function(request, status, error){
                         //alert(request.status);
                         var final_score = $("#score").val();
-                        alert("bfscore = "+final_score);
+                        // alert("bfscore = "+final_score);
                         window.location.replace("result/?score="+final_score);                                   
                     },
                 });
@@ -48,7 +48,7 @@
                     error: function(request, status, error){
                         //alert(request.status);
                         var final_score = Number($("#score").val())+1;
-                        alert("bfscore = "+final_score);
+                        // alert("bfscore = "+final_score);
                         window.location.replace("result/?score="+final_score);                 
                     },
                 });
