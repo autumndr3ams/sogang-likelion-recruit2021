@@ -26,9 +26,9 @@ class BFTest(AbstractBaseUser):
         return f'[{self.pk}] - {self.result}'
 
 class BFQuestionnaire(models.Model):
-    question = models.CharField(max_length=30,blank=False)
-    front_ans = models.TextField()
-    back_ans = models.TextField()
+    question = models.CharField(max_length=30,blank=False,verbose_name='질문')
+    front_ans = models.TextField(verbose_name='프론트엔드 답변')
+    back_ans = models.TextField(verbose_name='백엔드 답변')
 
     class Meta:
         verbose_name = '질문지'
