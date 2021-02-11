@@ -1,4 +1,7 @@
-<html>
+{% extends 'recruit/layout.html' %}
+{% load static %}
+
+{% block content %}
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script>
         // 점수 계산방법 다시 설정하기
@@ -69,4 +72,4 @@
         {%endif%}
     </body>
 
-</html>
+{% endblock %}
