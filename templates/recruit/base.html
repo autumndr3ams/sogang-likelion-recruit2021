@@ -1,10 +1,30 @@
-{%extends 'recruit/layout.html' %}
-{%load static%}
+{% extends 'recruit/layout.html' %}
+{% load static %}
 
-{%block content%}
-<p>while 멋쟁이사자처럼 서강대학교</p>
-        <p>print("그대 서강의 자랑이듯 멋사 그대의 자랑이어라")</p>
-        <p>print("Be As Proud of Sogang As LikeLion Is Proud of You")</p>
-        <input id="bf-test" type="button" value="아기사자 성향테스트" onclick="location.href='{% url 'bftest' %}'">
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %}
 
-{%endblock%}
+{% block content %}
+<body>
+<div class="container">
+        <div class="code">
+                <p><span style="color : yellow">while</span> 멋쟁이사자처럼 서강대학교</p>
+                <p><span class="tab">&#9;</span><span style="color : red;">print</span>("그대 서강의 자랑이듯 멋사 그대의 자랑이어라")</p>
+                <p><span class="tab">&#9;</span><span style="color : red;">print</span>("Be As Proud of Sogang As LikeLion Is Proud of You")</p>
+                
+                <div class="bf-test-btn">
+                        <div style="margin-right : 50px;">
+                        <span style="color : white; font-size : 14px;">예비 개발자 성향 </span>
+                        <input id="bf-test" class="btn" type="button" value="확인하러가기" onclick="location.href='{% url 'bftest' %}'">
+                        </div>
+                </div>
+        </div>
+        <div class="hackyourlife">
+                <div class="hackyourlife-container">
+                <img class="slogan-img" src="{% static 'images/slogan.png' %}" />
+                </div>
+        </div>
+</div>
+</body>
+{% endblock %}
