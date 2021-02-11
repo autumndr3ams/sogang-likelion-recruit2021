@@ -1,3 +1,27 @@
-body {
-    background-color: gray;
+.bg-light {
+    background-color: black!important;
+}
+/* 상단바 로고 */
+.navbar-brand > img {
+    width: 100px;
+    height: auto;
+}
+/* 상단바 메뉴 중앙 정렬 */
+.navbar-collapse > ul.navbar-nav.mr-auto{
+    display: flex;
+    margin: 0 auto;
+}
+
+/* 상단바 텍스트 */
+#navbarText > ul.navbar-nav.mr-auto > li > a {
+    color: #ffffff;
+}
+#navbarText > ul.navbar-nav > li > a {
+    color: #ffffff;
+}
+#navbarText > ul > li > a{
+    color: #ffffff;
+}
+#navbarText > ul > li > div{
+    color: #ffffff;
 }
