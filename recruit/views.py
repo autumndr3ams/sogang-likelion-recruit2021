@@ -8,7 +8,7 @@ from .models import BFQuestionnaire, BFTest
 
 class HomeView(View):
     def get(self, request):
-        return render(request,'recruit/base.html')
+        return render(request,'recruit/home.html')
 
 class BFTestView(ListView):
     model = BFQuestionnaire                 # queryset(default) = BFQuestionnaire.objects.all()
