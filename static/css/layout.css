@@ -19,20 +19,9 @@
 #navbarText > ul.navbar-nav > li > a {
     color: #ffffff;
 }
-#navbarText > ul > span > a{
+#navbarText > ul > li > a{
     color: #ffffff;
 }
-#navbarText > ul > span > div{
+#navbarText > ul > li > div{
     color: #ffffff;
-}
-/* mobile */
-@media screen and (max-width: 768px) {
-
-}
-
-@media (min-width: 767px) and (max-width:991px) {
-
-}
-@media (min-width: 992px) and (max-width:1096px) {
-
 }

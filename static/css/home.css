@@ -12,6 +12,8 @@
 .container{
   display : flex;
   height: 90vh;
+  max-width: none;
+  /* max-width: -webkit-fill-available; */
 }
 .code{
   margin : auto 0;
