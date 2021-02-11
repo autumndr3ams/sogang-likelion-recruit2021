@@ -6,29 +6,54 @@
 <html>
 <head>
   <meta charset = "utf-8">
-  <title>smart-dresser</title>
+  <title>LikeLion Sogang</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'css/layout.css' %}">
 </head>
 
 
 <body>
     <header>
-        <!-- 상단바 -->
-        <div>
-            <a href="{%url 'home' %}">홈로고</a>
-        </div>
-        <div>
-            <a href="{%url 'history' %}">히스토리</a>
-        </div>
-        <div>
-            <a href="{%url 'sglioninfo' %}">서강사자</a>
-        </div>
-        <div>
-            지원하기
-        </div>
-        <div>
-            로그인
-        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'img/mainlogo_white.png' %}">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- justify-content -->
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'history' %}">히스토리</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'sglioninfo' %}">서강사자</a>
+                </li>
+              </ul>
+              <ul class="navbar-nav">
+                {% if user.is_authenticated%}
+                <!-- user.is_authenticated면 dropdown-->
+                <span class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      로그아웃
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Action</a>
+                  </div>
+              </span>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="#">회원가입</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">로그인</a>
+                </li>
+                {% endif %}
+                <!-- else이면 <li></li> tag로 로그인/회원가입 -->
+              </ul>
+            </div>
+          </nav>
     </header>
     {%block content%}
     {%endblock%}
