@@ -1,3 +1,15 @@
 body {
-    background-color: gray;
+    background-color: black;
+}
+a{
+    color: white;
+}
+header{
+    display : flex;
+    justify-content: space-between;
+    color : white;
+    position : fixed;
+    top : 0;
+    background: black;
+    height : 50px;
 }

@@ -1,0 +1,87 @@
+@font-face {
+  font-family: 'DOSGothic';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSGothic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'TmonMonsori';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+  box-sizing: border-box;
+}
+body{
+  height: 100vh;
+  overflow: scroll;
+  scroll-snap-type: y mandatory;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+} 
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+p{
+  color : white;
+  font-family: 'DOSGothic';
+  margin-left : 70px;
+}
+.wwd{
+  font-family: 'TmonMonsori';
+  font-size : 45px;
+  margin-left : 50px;
+  margin-top : 10px;
+}
+.th{
+  font-size : 30px;
+}
+.ach{
+  font-size : 25px;
+}
+.history-container{
+  padding-top : 50px;
+  display : flex;
+  height : 100vh;
+}
+.left{
+  width : 50%;
+  opacity: 1;
+}
+
+
+
+.right{
+  width : 50%;
+  height: 90vh;
+  display : flex;
+  justify-content : center;
+}
+img{
+  display : inline-block;
+  width : 400px;
+}
+.wn{
+  font-size : 100px;
+  padding-bottom : 30px;
+  margin-top : 0;
+  margin-bottom : 0;
+}
+.idea{
+  font-size : 50px;
+  margin-top : 0;
+  margin-bottom : 0;
+}
+.logo-container{
+  display : flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-container > img {
+  opacity: 0.2;
+}
+.ung-e{
+  width : 100px;
+}
