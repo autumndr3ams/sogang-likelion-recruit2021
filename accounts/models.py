@@ -41,21 +41,21 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
         verbose_name='PK'
     )
     TEAM_CHOICES = (
-        ('운영진', 'executive'),
-        ('홍보팀','promotion'),
-        ('기획팀','planning'),
-        ('교육팀','education'),
+        ('executive','운영진'),
+        ('promotion','홍보팀'),
+        ('planning','기획팀'),
+        ('education','교육팀'),
     )
     POSITION_CHOICES = (
-        ('회장','chairman'),
-        ('부회장', 'vice-chairman'),
-        ('팀장', 'teamleader'),
-        ('팀원', 'teammember'),
+        ('chairman','회장'),
+        ('vice-chairman','부회장'),
+        ('teamleader','팀장'),
+        ('teammember','팀원'),
     )
     email = models.EmailField(unique=True, verbose_name='이메일')
     name = models.CharField(max_length=20,verbose_name = '이름')
     phone = models.CharField(max_length=11, verbose_name='핸드폰번호') # - 없이 핸드폰번호를 입력해주세요 placeholder로 쓰기
-    act_no = models.IntegerField(verbose_name='활동기수')
+    act_no = models.IntegerField(null=True,verbose_name='활동기수')
     
     is_manager = models.BooleanField(default=False, verbose_name='운영진 여부')
     profile_img = models.ImageField(blank=True, verbose_name='프로필이미지')
