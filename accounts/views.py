@@ -9,23 +9,30 @@ from django.views.generic import TemplateView, ListView
 # from django.core.mail import EmailMessage
 # from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
+from .models import MyUser, MyUserManager
+from .forms import SocialAccountSignUpForm
 # from django.contrib.auth.hashers import check_password
 # from django.contrib.auth.forms import PasswordChangeForm
 # from django.views.generic import View
 # from .helper import send_mail, email_auth_num
 # from django.template.loader import render_to_string
 
-# class SocialregisterView(View):
-#     model = BFQuestionnaire
-#     template_name = 'accounts/.html'
+class SocialregisterView(View):
+    form_class = SocialAccountSignUpForm
+    # initial = {'key':'value'}
+    template_name = 'registration/socialregister.html'
+    def get(self, request):
+        form = self.form_class()
+        return render(request, self.template_name, {'form' : form})
+    def post(self, request):
+        profile = request.user
+        form = self.form_class(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+        return render(request,self.template_name, {'form':form})
 
-#     def socialregister(request):
-#         profile = request.user
-#         if request.method=='POST':
-#             form=SocialAccountUpdateForm(request.POST,instance=profile)
-#             if form.is_valid():
-#                 form.save()
-#             return redirect('set_address')
-#         else:
-#             form=SocialAccountUpdateForm(instance=profile)
-#         return render(request,'registration/socialregister.html',{'form':form})
+class SglionInfoView(ListView):
+    queryset = MyUser.objects.filter(is_manager=True)
+    context_object_name = 'manager_list'
+    template_name = 'recruit/sglioninfo.html'
