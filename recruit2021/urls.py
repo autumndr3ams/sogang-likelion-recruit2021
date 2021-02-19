@@ -24,7 +24,7 @@ urlpatterns = [
     path('bftest/',recruit.views.BFTestView.as_view(),name='bftest'),
     path('bftest/result/',recruit.views.BFResultView.as_view(),name="bfresult"),
     path('history/', recruit.views.HistoryView.as_view(), name="history"),
-    path('sglioninfo/', recruit.views.SglionInfoView.as_view(), name="sglioninfo"),
+    path('sglioninfo/', accounts.views.SglionInfoView.as_view(), name="sglioninfo"),
     path('accounts/',include('allauth.urls')),
     path('socialregister/', accounts.views.SocialregisterView.as_view(),name="socialregister"),
 ]

@@ -2,7 +2,113 @@
 {%load static%}
 
 {%block content%}
-
-<!-- for문으로 운영진 정보 받아오기 -->
-
+<!-- 회장부회장출력 -->
+<h3>회장단</h3>
+{% for manager in manager_list %}
+    {% if manager.team == '회장단' and manager.position == '회장' %}
+        {{manager.name}}
+        <br>
+        {{manager.position}}
+        <br>
+        {{manager.first_major}}
+        <br>
+        {% if manager.second_major %}
+            {{manager.second_major}}
+            <br>
+        {% endif %}
+    {% endif %}
+    {% if manager.team == '회장단' and manager.position == '부회장' %}
+        {{manager.name}}
+        <br>
+        {{manager.position}}
+        <br>
+        {{manager.first_major}}
+        <br>
+        {% if manager.second_major %}
+            {{manager.second_major}}
+            <br>
+        {% endif %}
+    {% endif %}
+{% endfor %}
+<h3>기획팀</h3>
+{% for manager in manager_list %}
+    {% if manager.team == '기획팀' and manager.position == '팀장' %}
+        {{manager.name}}
+        <br>
+        {{manager.position}}
+        <br>
+        {{manager.first_major}}
+        <br>
+        {% if manager.second_major %}
+            {{manager.second_major}}
+            <br>
+        {% endif %}
+    {% endif %}
+    {% if manager.team == '기획팀' and manager.position == '팀원' %}
+        {{manager.name}}
+        <br>
+        {{manager.position}}
+        <br>
+        {{manager.first_major}}
+        <br>
+        {% if manager.second_major %}
+            {{manager.second_major}}
+            <br>
+        {% endif %}
+    {% endif %}
+{% endfor %}
+<h3>교육팀</h3>
+{% for manager in manager_list %}
+    {% if manager.team == '교육팀' and manager.position == '팀장' %}
+        {{manager.name}}
+        <br>
+        {{manager.position}}
+        <br>
+        {{manager.first_major}}
+        <br>
+        {% if manager.second_major %}
+            {{manager.second_major}}
+            <br>
+        {% endif %}
+    {% endif %}
+    {% if manager.team == '교육팀' and manager.position == '팀원' %}
+        {{manager.name}}
+        <br>
+        {{manager.position}}
+        <br>
+        {{manager.first_major}}
+        <br>
+        {% if manager.second_major %}
+            {{manager.second_major}}
+            <br>
+        {% endif %}
+    {% endif %}
+{% endfor %}
+<h3>홍보팀</h3>
+{% for manager in manager_list %}
+    {% if manager.team == '홍보팀' and manager.position == '팀장' %}
+        {{manager.name}}
+        <br>
+        {{manager.position}}
+        <br>
+        {{manager.first_major}}
+        <br>
+        {% if manager.second_major %}
+            {{manager.second_major}}
+            <br>
+        {% endif %}
+    {% endif %}
+    {% if manager.team == '홍보팀' and manager.position == '팀원' %}
+        {{manager.name}}
+        <br>
+        {{manager.position}}
+        <br>
+        {{manager.first_major}}
+        <br>
+        {% if manager.second_major %}
+            {{manager.second_major}}
+            <br>
+        {% endif %}
+    {% endif %}
+{% endfor %}
 {%endblock%}

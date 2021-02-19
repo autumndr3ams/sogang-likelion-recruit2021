@@ -32,5 +32,7 @@ class SocialregisterView(View):
             return redirect('home')
         return render(request,self.template_name, {'form':form})
 
-# class Managerlistview(ListView):
-#     model = MyUser
+class SglionInfoView(ListView):
+    queryset = MyUser.objects.filter(is_manager=True)
+    context_object_name = 'manager_list'
+    template_name = 'recruit/sglioninfo.html'
