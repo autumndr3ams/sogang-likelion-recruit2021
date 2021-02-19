@@ -1,6 +1,10 @@
 {% extends 'recruit/layout.html' %}
 {% load static %}
 
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/bftest.css' %}" />
+{% endblock %}
+
 {% block content %}
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script>
@@ -58,18 +62,34 @@
                 });
         });
     </script>
-
-    <head></head>
     <body>
-        {%if q%}
-            <div class="bf-question">
-                <p class="question">{{q.question}}</p>
-                <input id="pk" value="{{q.pk}}" style="display: none;">
-                <input id="score" value="0" style="display: none;">
-                <input id="front" type="button" value="{{q.front_ans}}">
-                <input id="back" type="button" value="{{q.back_ans}}">
-            </div>
-        {%endif%}
+            <div class="task-manager">
+                <div class="left-bar">
+                  <div class="upper-part">
+                    <div class="actions">
+                      <div class="circle"></div>
+                      <div class="title">당신은 어떤 사자?</div>
+                      <div class="circle-2"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="page-content">
+                    {%if q%}
+                    <input id="pk" value="{{q.pk}}" style="display: none;">
+                    <input id="score" value="0" style="display: none;">
+                    <div class="question-header">
+                        <p class="question" style="display: inline;">{{q.question}}</p>
+                    </div>
+                    <div class="tasks-wrapper">
+                        <div class="task">
+                            <p><input id="front" type="button" value="{{q.front_ans}}"></p>
+                            <p><input id="back" type="button" value="{{q.back_ans}}"></p>  
+                        </div>
+                    </div>
+                  {%else%}
+                  {%endif%}
+                </div>
+              </div>
     </body>
 
 {% endblock %}
