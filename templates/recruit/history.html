@@ -3,6 +3,7 @@
 
 {% block extrahead %}
 <link rel="stylesheet" href="{% static 'css/history.css' %}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script type="text/javascript">
         window.onload = function () {
@@ -52,16 +53,13 @@
 {%block content%}
 <body>
     <div class="history-container">
-        <div class="left">
+        <div class="left left4">
             <p class="wwd">What We Do</p>
             <p class="th">멋쟁이사자처럼 서강대학교 4기</p>
-            <p class="ach">Achievements</p>
+            
             <p>[웅이로드]</p>
             <p>29,000회 이상의 다운로드</p>
             <p>웹 서비스 + 앱 투트랙 배포</p>
-            <div style="margin-left : 80px;">
-                <img class="ung-e" src="{% static 'images/ung-e.png' %}">
-            </div>
         </div>
         <div class="right">
             <div class="logo-container">
@@ -71,10 +69,10 @@
     </div>
 
     <div class="history-container">
-        <div class="left">
+        <div class="left left5">
             <p class="wwd">What We Do</p>
             <p class="th">멋쟁이사자처럼 서강대학교 5기</p>
-            <p class="ach">Achievements</p>
+            
             <p>[투정]</p>
             <p>블록체인 기반 법안 쇼핑몰</p>
             <p>2018년 5월 정식 서비스 오픈</p>
@@ -89,10 +87,10 @@
     </div>
 
     <div class="history-container">
-        <div class="left">
+        <div class="left left6">
             <p class="wwd">What We Do</p>
             <p class="th">멋쟁이사자처럼 서강대학교 6기</p>
-            <p class="ach">Achievements</p>
+            
             <p>[뽀바드림]</p>
             <p>프린트 픽업 서비스</p>
             <p>[파우치메이트]</p>
@@ -100,16 +98,16 @@
         </div>
         <div class="right">
             <div class="logo-container">
-                <img src = "{% static 'images/logo6.png' %}">
+                <img src = "{% static 'images/logo6.png' %}" style="opacity : 0.6;">
             </div>
         </div>
     </div>
 
     <div class="history-container">
-        <div class="left">
+        <div class="left left7">
             <p class="wwd">What We Do</p>
             <p class="th">멋쟁이사자처럼 서강대학교 7기</p>
-            <p class="ach">Achievements</p>
+            
             <p>[서강고등학교]</p>
             <p>2019 서강대학교 대동제 안내 사이트 개발</p>
             <p>[삼삼오오]</p>
@@ -123,16 +121,16 @@
         </div>
         <div class="right">
             <div class="logo-container">
-                <img src = "{% static 'images/logo7.jpg' %}">
+                <img src = "{% static 'images/logo7.png' %}">
             </div>
         </div>
     </div>
 
     <div class="history-container">
-        <div class="left">
+        <div class="left left8">
             <p class="wwd">What We Do</p>
             <p class="th">멋쟁이사자처럼 서강대학교 8기</p>
-            <p class="ach">Achievements</p>
+            
             <p>[옷짱]</p>
             <p>우리들의 똑똑한 옷장</p>
             <p>[책화점]</p>
@@ -150,10 +148,15 @@
     </div>
 
     <div class="history-container">
-        <div>
+        <div class="left left9" style="position:relative;">
             <p class="th">멋쟁이사자처럼 서강대학교 9기</p>
             <p class="wn">What's NEXT?</p>
             <p class="idea">세상을 바꿀 아이디어</p>
+        </div>
+        <div class="right">
+            <div class="logo-container">
+                <img src = "{% static 'images/logo9.png' %}">
+            </div>
         </div>
     </div>
 </body>

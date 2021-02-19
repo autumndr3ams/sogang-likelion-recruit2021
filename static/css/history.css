@@ -12,6 +12,7 @@
 }
 *{
   box-sizing: border-box;
+  background-color: black;
 }
 body{
   height: 100vh;
@@ -28,6 +29,7 @@ p{
   color : white;
   font-family: 'DOSGothic';
   margin-left : 70px;
+  background : none;
 }
 .wwd{
   font-family: 'TmonMonsori';
@@ -42,7 +44,7 @@ p{
   font-size : 25px;
 }
 .history-container{
-  padding-top : 50px;
+  padding-top : 56px;
   display : flex;
   height : 100vh;
 }
@@ -50,9 +52,6 @@ p{
   width : 50%;
   opacity: 1;
 }
-
-
-
 .right{
   width : 50%;
   height: 90vh;
@@ -64,7 +63,7 @@ img{
   width : 400px;
 }
 .wn{
-  font-size : 100px;
+  font-size : 90px;
   padding-bottom : 30px;
   margin-top : 0;
   margin-bottom : 0;
@@ -82,6 +81,121 @@ img{
 .logo-container > img {
   opacity: 0.2;
 }
-.ung-e{
-  width : 100px;
+
+/* 반응형 */
+/* 스마트폰 */
+@media screen and (max-width: 1012px){
+  .left{
+    width : 100%;
+    position: relative;
+  }
+  .left4::before{
+    content: "";
+    background-image: url('../images/logo4.png');
+    background-size : contain;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-y: center;
+    opacity: 0.2;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+  .left5::before{
+    content: "";
+    background-image: url('../images/logo5.png');
+    background-size : contain;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    opacity: 0.2;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+  .left6::before{
+    content: "";
+    background-image: url('../images/logo6.png');
+    background-size : contain;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    opacity: 0.5;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+  .left7::before{
+    content: "";
+    background-image: url('../images/logo7.png');
+    background-size : contain;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    opacity: 0.15;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+  .left8::before{
+    content: "";
+    background-image: url('../images/logo8.png');
+    background-size : contain;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    opacity: 0.2;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+  .left9::before{
+    content: "";
+    background-image: url('../images/logo9.png');
+    background-size : contain;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    opacity: 0.2;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+  
+  .right{
+    display: none;
+  }
+  p{
+    margin-left : 40px;
+    margin-right : 40px;
+  }
+  .th {
+    font-size: 20px;
+  }
+  .wwd {
+    font-size: 35px;
+    position: relative;
+    left: -15px;
+  }
+  .wn {
+    font-size: 45px;
+  }
+  .idea {
+    font-size: 28px;
+  }
+}
+@media (min-width: 1200px){
+  .left{
+    width : 50%;
+  }
+  .right{
+    display : flex;
+  }
 }

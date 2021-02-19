@@ -11,16 +11,27 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import json
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CONFIG_SECRET_FILE = os.path.join(BASE_DIR, 'secret_key.json')
+
+config_secret = json.loads(open(CONFIG_SECRET_FILE).read())
+
+def get_secret(setting,secret=config_secret):
+    try:
+        return config_secret[setting]
+    except KeyError:
+        error_msg = "Set the {0} environment variable".format(setting)
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '-u*-u+7j^+ep3o56awu5-d=tv4@k*b5ppj_p%t^ihyhhl-z8!3'
+SECRET_KEY = get_secret("DJANGO_SECRET_KEY")
+OS_ENVIRON_KEY = get_secret("OS_ENVIRON")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -86,10 +97,19 @@ WSGI_APPLICATION = 'recruit2021.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    
+    # 'default' : {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': os.path.join(BASE_DIR, 'db_sqlite3'),
+    # }  
+     'default': {
+         'ENGINE': 'django.db.backends.postgresql',
+         'NAME': OS_ENVIRON_KEY['DATABASE']['NAME'],
+         'USER': OS_ENVIRON_KEY['DATABASE']['USER'],
+         'PASSWORD': OS_ENVIRON_KEY['DATABASE']['PASSWORD'],
+         'HOST': OS_ENVIRON_KEY['DATABASE']['HOST'],
+         'PORT': '5432',
+     }
 }
 
 
