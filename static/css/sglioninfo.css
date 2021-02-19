@@ -1,0 +1,50 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-color: black;
+}
+h1{
+  color: white;
+  margin-top: 7vh;
+  margin-left: 7vw;
+}
+
+.container{
+  margin-top: 60px;
+  width: 1140px;
+}
+.row{
+  display: flex;
+  justify-content:space-around;
+  width: 100%;
+}
+/* .person{
+
+} */
+.circle{
+  width: 200px;
+  height: 200px;
+  border-radius:50%;
+  background: linear-gradient(to bottom, #FF9E1B, #ff0011);
+  margin-top: 10px;
+}
+.info{
+  text-align: center;
+  margin: 60px auto;
+}
+h6{
+  color: white;
+}
+
+/*반응형*/
+/*모바일*/
+@media screen and (max-width: 1012px){
+
+}
+
+/*데스크탑*/
+@media (min-width: 1200px){
+
+}

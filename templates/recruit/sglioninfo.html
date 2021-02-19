@@ -1,8 +1,51 @@
 {%extends 'recruit/layout.html' %}
 {%load static%}
 
-{%block content%}
+{%block extrahead%}
+<link rel="stylesheet" href="{% static 'css/sglioninfo.css' %}" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
+{% endblock %}
 
+{%block content%}
 <!-- for문으로 운영진 정보 받아오기 -->
+
+<main>
+  <h1>Who We Are</h1>
+  <div class="container">
+    <div class="row">
+        <div class="person">
+          <div class="circle"></div>
+          <div class="info">
+            <h6>9기 회장</h6>
+            <h6>Hong</h6>
+          </div>
+        </div>
+
+        <div class="person">
+          <div class="circle"></div>
+          <div class="info">
+            <h6>9기 회장</h6>
+            <h6>Hong</h6>
+          </div>
+        </div>
+
+        <div class="person">
+          <div class="circle"></div>
+          <div class="info">
+            <h6>9기 회장</h6>
+            <h6>Hong</h6>
+          </div>
+        </div>
+
+        <div class="person">
+          <div class="circle"></div>
+          <div class="info">
+            <h6>9기 회장</h6>
+            <h6>Hong</h6>
+          </div>
+        </div>
+    </div>
+  </div>
+</main>
 
 {%endblock%}
