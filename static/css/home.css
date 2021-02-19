@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'DOSGothic';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSGothic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+  box-sizing: border-box;
+  font-family: 'DOSGothic';
+  background-color: black;
+}
+.container{
+  display : flex;
+  height: 90vh;
+  max-width: none;
+  /* max-width: -webkit-fill-available; */
+}
+.code{
+  margin : auto 0;
+  margin-left: 50px;
+  width : 55%;
+}
+p{
+  font-family: 'DOSGothic';
+  color : white;
+}
+.tab { white-space: pre; }
+
+.hackyourlife{
+  width : 45%;
+  display : flex;
+  align-items: center;
+
+}
+
+.slogan-img{
+  display : inline-block;
+  width: 450px;
+}
+.bf-test-btn{
+  display: flex;
+  justify-content: flex-end;
+}
+.btn{
+  background-color: white;
+  border: none;
+  padding: 0.2rem 0.5rem;
+  font-weight: 600;
+}

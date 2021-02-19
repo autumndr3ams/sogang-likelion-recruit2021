@@ -22,6 +22,7 @@ class MyUserManager(BaseUserManager):
         관리자 유저 생성
         """
         kwargs.setdefault('is_admin', True)
+        kwargs.setdefault('act_no',8)
         return self._create_user(email, password, **kwargs)
 
     def get_or_create_google_user(self,user_pk):
@@ -55,14 +56,14 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True, verbose_name='이메일')
     name = models.CharField(max_length=20,verbose_name = '이름')
     phone = models.CharField(max_length=11, verbose_name='핸드폰번호') # - 없이 핸드폰번호를 입력해주세요 placeholder로 쓰기
-    act_no = models.IntegerField(null=True,verbose_name='활동기수')
+    act_no = models.IntegerField(blank=True,null=True,verbose_name='활동기수')
     
     is_manager = models.BooleanField(default=False, verbose_name='운영진 여부')
     profile_img = models.ImageField(blank=True, verbose_name='프로필이미지')
     team = models.CharField(max_length=20, choices = TEAM_CHOICES, verbose_name='팀')
     position = models.CharField(max_length = 20,choices = POSITION_CHOICES, verbose_name='직책')
     first_major = models.CharField(max_length=20,verbose_name='주전공')
-    second_major = models.CharField(max_length=20,verbose_name='부전공/연계전공')
+    second_major = models.CharField(blank=True,max_length=20,verbose_name='부전공/연계전공')
     
     date_joined = models.DateTimeField(auto_now_add=True, verbose_name='가입일')
     is_active = models.BooleanField(default=True, verbose_name='활성화 여부')

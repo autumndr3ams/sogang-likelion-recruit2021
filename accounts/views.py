@@ -31,3 +31,6 @@ class SocialregisterView(View):
             form.save()
             return redirect('home')
         return render(request,self.template_name, {'form':form})
+
+# class Managerlistview(ListView):
+#     model = MyUser
