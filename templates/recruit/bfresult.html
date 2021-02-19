@@ -3,6 +3,7 @@
 
 {% block extrahead %}
 <link rel="stylesheet" href="{% static 'css/bftest.css' %}" />
+<link rel="stylesheet" href="{% static 'css/bfresult.css' %}" />
 {% endblock %}
 
 {%block content%}
@@ -18,7 +19,12 @@
             </div>
         </div>
         <div class="page-content">
-            {{score}}
+            <div class="result-header">
+                <p>{{sogang_friends}}</p>
+            </div>
+            <div class="img-container">
+                <img class="sogangimg"src="../../static/images/sogang-friends/{{img_src}}">
+            </div>
         </div>
     </div>
 </body>

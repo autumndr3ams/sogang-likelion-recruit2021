@@ -101,13 +101,19 @@ input[type="button"]:active{
     padding: 40px 20px 0 20px;
     background-color: #ECECEC;
  }
-    .page-content .question-header {
+    .page-content .question-header{
       font-size: 26px;
       color: var(--main-color);
       margin-top: 10px;
       text-align: center;
      }
-  
+     .page-content .result-header{
+      font-size: 26px;
+      color: var(--main-color);
+      margin-top: 10px;
+      text-align: center;
+     }
+
   
   .task-item {
     display: none; }

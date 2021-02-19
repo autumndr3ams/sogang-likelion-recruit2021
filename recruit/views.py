@@ -39,12 +39,21 @@ class BFTestView(ListView):
 class BFResultView(TemplateView):
     template_name = 'recruit/bfresult.html'
 
-
     def get(self, request, *args, **kwargs):
+        result = {
+        '0' : '뜨거운 논쟁을 즐기는 서강이',
+        '1' : '만능 재주꾼 서강이',
+        '2' : '대담한 서강이',
+        '3' : '알바트로스',
+        '4' : '자유로운 영혼의 알로스',
+        '5' : '열정적인 활동가 알로스',
+        '6' : '엄격한 관리자 알로스'
+        }
+
         score = request.GET.get('score')
-        print(img)
         context = {
-            'score': request.GET.get('score'),
+            'score': score,
+            'sogang_friends' : result[score],
             'img_src': 'result_'+score+'.png',
         }
         return self.render_to_response(context)

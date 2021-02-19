@@ -1,0 +1,14 @@
+body {
+
+}
+.task-manager{
+    height: 80%;
+}
+
+.img-container {
+    display: inline-block;
+    align-self: center;
+}
+.sogangimg {
+    width: 400px;
+}
