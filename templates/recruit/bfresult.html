@@ -1,8 +1,26 @@
 {%extends 'recruit/layout.html' %}
 {%load static%}
 
-{%block content%}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/bftest.css' %}" />
+{% endblock %}
 
-<p>점수 {{score}}</p>
+{%block content%}
+<body>
+    <div class="task-manager">
+        <div class="left-bar">
+            <div class="upper-part">
+              <div class="actions">
+                <div class="circle"></div>
+                <div class="title">나는 어떤 멋사?</div>
+                <div class="circle-2"></div>
+              </div>
+            </div>
+        </div>
+        <div class="page-content">
+            {{score}}
+        </div>
+    </div>
+</body>
 
 {%endblock%}

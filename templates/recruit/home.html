@@ -7,6 +7,7 @@
 {% block content %}
 <head>
         <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% comment %} 디바이스 넓이를 뷰포트 세팅 {% endcomment %}
 </head>
 
 <body>
@@ -17,9 +18,9 @@
                 <p><span class="tab">&#9;</span><span style="color : red;">print</span>("Be As Proud of Sogang As LikeLion Is Proud of You")</p>
                 
                 <div class="bf-test-btn">
-                        <div style="margin-right : 50px;">
-                        <span style="color : white; font-size : 14px;">예비 개발자 성향 </span>
-                        <input id="bf-test" class="btn" type="button" value="확인하러가기" onclick="location.href='{% url 'bftest' %}'">
+                        <div class="bf-test-btn-1">
+                                <span style="color : white; font-size : 14px;">예비 개발자 성향 </span>
+                                <input id="bf-test" class="btn" type="button" value="확인하러가기" onclick="location.href='{% url 'bftest' %}'">
                         </div>
                 </div>
         </div>

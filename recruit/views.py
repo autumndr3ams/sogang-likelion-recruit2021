@@ -39,9 +39,13 @@ class BFTestView(ListView):
 class BFResultView(TemplateView):
     template_name = 'recruit/bfresult.html'
 
+
     def get(self, request, *args, **kwargs):
+        score = request.GET.get('score')
+        print(img)
         context = {
             'score': request.GET.get('score'),
+            'img_src': 'result_'+score+'.png',
         }
         return self.render_to_response(context)
 
