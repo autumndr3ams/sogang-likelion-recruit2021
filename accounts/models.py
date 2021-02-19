@@ -41,16 +41,16 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
         verbose_name='PK'
     )
     TEAM_CHOICES = (
-        ('운영진', 'executive'),
-        ('홍보팀','promotion'),
-        ('기획팀','planning'),
-        ('교육팀','education'),
+        ('운영진', '운영진'),
+        ('홍보팀','홍보팀'),
+        ('기획팀','기획팀'),
+        ('교육팀','교육팀'),
     )
     POSITION_CHOICES = (
-        ('회장','chairman'),
-        ('부회장', 'vice-chairman'),
-        ('팀장', 'teamleader'),
-        ('팀원', 'teammember'),
+        ('회장','회장'),
+        ('부회장', '부회장'),
+        ('팀장', '팀장'),
+        ('팀원', '팀원'),
     )
     email = models.EmailField(unique=True, verbose_name='이메일')
     name = models.CharField(max_length=20,verbose_name = '이름')
