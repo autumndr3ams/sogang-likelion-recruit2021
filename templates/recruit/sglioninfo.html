@@ -1,114 +1,43 @@
 {%extends 'recruit/layout.html' %}
 {%load static%}
 
+{%block extrahead%}
+<link rel="stylesheet" href="{% static 'css/sglioninfo.css' %}" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
+{% endblock %}
+
 {%block content%}
 <!-- 회장부회장출력 -->
-<h3>회장단</h3>
-{% for manager in manager_list %}
-    {% if manager.team == '회장단' and manager.position == '회장' %}
-        {{manager.name}}
-        <br>
-        {{manager.position}}
-        <br>
-        {{manager.first_major}}
-        <br>
-        {% if manager.second_major %}
-            {{manager.second_major}}
+<main>
+  <p class="title">Who We Are</p>
+  <div class="infoContainer"> 
+     
+    <div class="row">
+      {% for manager in manager_list %} 
+      
+      <div class="person">
+        <div class="circle"></div>
+        <div class="info">
+          
+          <p class="name">{{manager.name}}</p>
+          <!-- <h6>{{manager.position}}</h6> -->
+          <p class="major">{{manager.first_major}}
+            {% if manager.second_major %}
             <br>
-        {% endif %}
-    {% endif %}
-    {% if manager.team == '회장단' and manager.position == '부회장' %}
-        {{manager.name}}
-        <br>
-        {{manager.position}}
-        <br>
-        {{manager.first_major}}
-        <br>
-        {% if manager.second_major %}
+             <span>/</span> 
             {{manager.second_major}}
-            <br>
-        {% endif %}
-    {% endif %}
-{% endfor %}
-<h3>기획팀</h3>
-{% for manager in manager_list %}
-    {% if manager.team == '기획팀' and manager.position == '팀장' %}
-        {{manager.name}}
-        <br>
-        {{manager.position}}
-        <br>
-        {{manager.first_major}}
-        <br>
-        {% if manager.second_major %}
-            {{manager.second_major}}
-            <br>
-        {% endif %}
-    {% endif %}
-    {% if manager.team == '기획팀' and manager.position == '팀원' %}
-        {{manager.name}}
-        <br>
-        {{manager.position}}
-        <br>
-        {{manager.first_major}}
-        <br>
-        {% if manager.second_major %}
-            {{manager.second_major}}
-            <br>
-        {% endif %}
-    {% endif %}
-{% endfor %}
-<h3>교육팀</h3>
-{% for manager in manager_list %}
-    {% if manager.team == '교육팀' and manager.position == '팀장' %}
-        {{manager.name}}
-        <br>
-        {{manager.position}}
-        <br>
-        {{manager.first_major}}
-        <br>
-        {% if manager.second_major %}
-            {{manager.second_major}}
-            <br>
-        {% endif %}
-    {% endif %}
-    {% if manager.team == '교육팀' and manager.position == '팀원' %}
-        {{manager.name}}
-        <br>
-        {{manager.position}}
-        <br>
-        {{manager.first_major}}
-        <br>
-        {% if manager.second_major %}
-            {{manager.second_major}}
-            <br>
-        {% endif %}
-    {% endif %}
-{% endfor %}
-<h3>홍보팀</h3>
-{% for manager in manager_list %}
-    {% if manager.team == '홍보팀' and manager.position == '팀장' %}
-        {{manager.name}}
-        <br>
-        {{manager.position}}
-        <br>
-        {{manager.first_major}}
-        <br>
-        {% if manager.second_major %}
-            {{manager.second_major}}
-            <br>
-        {% endif %}
-    {% endif %}
-    {% if manager.team == '홍보팀' and manager.position == '팀원' %}
-        {{manager.name}}
-        <br>
-        {{manager.position}}
-        <br>
-        {{manager.first_major}}
-        <br>
-        {% if manager.second_major %}
-            {{manager.second_major}}
-            <br>
-        {% endif %}
-    {% endif %}
-{% endfor %}
-{%endblock%}
+            {% endif %}
+          </p>
+          
+          
+        </div>
+        
+      </div>
+
+      
+      {%endfor%}  
+    </div>
+    
+  </div>
+</main>
+{% endblock %}
