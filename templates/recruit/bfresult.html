@@ -1,8 +1,35 @@
 {%extends 'recruit/layout.html' %}
 {%load static%}
 
-{%block content%}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/bftest.css' %}" />
+<link rel="stylesheet" href="{% static 'css/bfresult.css' %}" />
+{% endblock %}
 
-<p>점수 {{score}}</p>
+{%block content%}
+<body>
+    <div class="task-manager">
+        <div class="left-bar">
+            <div class="upper-part">
+              <div class="actions">
+                <div class="circle"></div>
+                <div class="title">결과는?</div>
+                <div class="circle-2"></div>
+              </div>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="result-header">
+                <p>{{sogang_friends}}</p>
+            </div>
+            <div class="img-container">
+                <img class="sogangimg"src="../../static/images/sogang-friends/{{img_src}}">
+            </div>
+            <div class="result-text">
+                <p>{{sogang_story|linebreaks}}</p>
+            </div>
+        </div>
+    </div>
+</body>
 
 {%endblock%}
