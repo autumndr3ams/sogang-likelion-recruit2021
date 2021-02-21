@@ -41,7 +41,7 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
         verbose_name='PK'
     )
     TEAM_CHOICES = (
-        ('운영진', '운영진'),
+        ('회장단','회장단'),
         ('홍보팀','홍보팀'),
         ('기획팀','기획팀'),
         ('교육팀','교육팀'),
