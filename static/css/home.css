@@ -159,6 +159,7 @@ svg{
   /* default size */
   .code {
     padding: 50px;
+    font-size: large;
   }
 }
 
