@@ -67,7 +67,8 @@ input[type="button"]:active{
     height: 35%;
     background: #fff;
     border-radius: 10px;
-    box-shadow: 0 0.3px 2.2px rgba(0, 0, 0, 0.011), 0 0.7px 5.3px rgba(0, 0, 0, 0.016), 0 1.3px 10px rgba(0, 0, 0, 0.02), 0 2.2px 17.9px rgba(0, 0, 0, 0.024), 0 4.2px 33.4px rgba(0, 0, 0, 0.029), 0 10px 80px rgba(0, 0, 0, 0.04);
+    box-shadow: 5px 5px 5px 5px rgb(0 0 0 / 20%);
+    /* box-shadow: 0 0.3px 2.2px rgba(0, 0, 0, 0.011), 0 0.7px 5.3px rgba(0, 0, 0, 0.016), 0 1.3px 10px rgba(0, 0, 0, 0.02), 0 2.2px 17.9px rgba(0, 0, 0, 0.024), 0 4.2px 33.4px rgba(0, 0, 0, 0.029), 0 10px 80px rgba(0, 0, 0, 0.04); */
     overflow: hidden; }
 
   .left-bar {
@@ -102,13 +103,7 @@ input[type="button"]:active{
     background-color: #ECECEC;
  }
     .page-content .question-header{
-      font-size: 26px;
-      color: var(--main-color);
-      margin-top: 10px;
-      text-align: center;
-     }
-     .page-content .result-header{
-      font-size: 26px;
+      font-size: 23px;
       color: var(--main-color);
       margin-top: 10px;
       text-align: center;
@@ -119,7 +114,7 @@ input[type="button"]:active{
     display: none; }
   
   .tasks-wrapper {
-    padding: 50px 0;
+    padding-top: 50px;
     flex: 1;
     overflow-y: auto;
     height: 100%;
@@ -139,27 +134,43 @@ input[type="button"]:active{
     .task label {
       cursor: pointer; }
 
-  
-  @media screen and (max-width: 900px) {
-    .left-bar {
-      display: none; } }
-  @media screen and (max-width: 700px) {
-    .task-manager {
-      flex-direction: column;
-      overflow-y: auto; }
-  
-    .right-bar, .page-content {
-      width: 100%;
-      display: block; }
-  
-    .tasks-wrapper {
-      height: auto; } }
-  @media screen and (max-width: 520px) {
-    .page-content {
-      padding: 40px 10px 0 10px; }
-  
-    .right-content {
-      padding: 10px 16px; }
-  
-    .category {
-      padding: 20px; } }
+
+@media screen and (max-width: 767px) {
+  .page-content{
+    padding: 40px 20px 0 20px;
+  }
+  .page-content .question-header {
+    font-size: 15px;
+  }
+  .title{
+    font-size: 10px;
+  }
+  .task-manager{
+    width: 90%;
+    height: auto;
+  }
+  .task {
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+  }
+  .tasks-wrapper{
+    padding-right: 0;
+  }
+  input[type="button"] {
+    padding: 10px 15px;
+    font-size: 10px;
+}
+}
+@media (min-width: 768px) and  (max-width:1012px){
+  .page-content .question-header {
+    font-size: 20px;
+  }
+  .task-manager{
+    height: auto;
+  }
+  .task {
+    flex-direction: column;
+    align-items: center;
+  }
+}
