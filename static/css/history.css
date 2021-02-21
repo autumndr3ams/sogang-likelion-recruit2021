@@ -10,6 +10,18 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: '62570체';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/62570체.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'S-CoreDream-8Heavy';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 *{
   box-sizing: border-box;
   background-color: black;
@@ -28,29 +40,40 @@ body::-webkit-scrollbar {
 p{
   color : white;
   font-family: 'DOSGothic';
-  margin-left : 70px;
+  margin-left : 0px;
   background : none;
 }
 .wwd{
   font-family: 'TmonMonsori';
-  font-size : 45px;
-  margin-left : 50px;
-  margin-top : 10px;
+  font-size: 35px;
+  margin-top: 20px;
 }
 .th{
-  font-size : 30px;
-}
-.ach{
   font-size : 25px;
+  margin-left: 15px;
+}
+.th9{
+  margin-left: 0;
 }
 .history-container{
   padding-top : 56px;
   display : flex;
   height : 100vh;
 }
+.bar{
+  width : 10%;
+}
+.bar img{
+  width : 100%;
+  height : 100%;
+}
 .left{
-  width : 50%;
+  width : 40%;
   opacity: 1;
+}
+.left9{
+  margin: auto 0;
+  top: -56px;
 }
 .right{
   width : 50%;
@@ -63,13 +86,14 @@ img{
   width : 400px;
 }
 .wn{
-  font-size : 90px;
+  font-size : 50px;
   padding-bottom : 30px;
   margin-top : 0;
   margin-bottom : 0;
+  padding-bottom: 0;
 }
 .idea{
-  font-size : 50px;
+  font-size : 30px;
   margin-top : 0;
   margin-bottom : 0;
 }
@@ -81,10 +105,22 @@ img{
 .logo-container > img {
   opacity: 0.2;
 }
+.pj{
+  margin-left: 25px;
+  margin-bottom : 0;
+  padding-bottom:0;
+}
+.ex{
+  font-size : 13px;
+  margin-left: 35px;
+}
 
 /* 반응형 */
 /* 스마트폰 */
 @media screen and (max-width: 1012px){
+  .bar{
+    display : none;
+  }
   .left{
     width : 100%;
     position: relative;
@@ -155,6 +191,11 @@ img{
     right: 0px;
     bottom: 0px;
   }
+  .left9{
+    height : 100%;
+    display : flex;
+    align-items: center;
+  }
   .left9::before{
     content: "";
     background-image: url('../images/logo9.png');
@@ -178,17 +219,24 @@ img{
   }
   .th {
     font-size: 20px;
+    margin-left: 35px;
   }
   .wwd {
     font-size: 35px;
     position: relative;
-    left: -15px;
+    margin-left : 30px;
   }
   .wn {
     font-size: 45px;
   }
   .idea {
-    font-size: 28px;
+    font-size: 26px;
+  }
+  .pj{
+    margin-left: 40px;
+  }
+  .ex{
+    margin-left : 50px;
   }
 }
 @media (min-width: 1200px){
