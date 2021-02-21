@@ -49,15 +49,9 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
     )
     POSITION_CHOICES = (
         ('회장','회장'),
-<<<<<<< HEAD
-        ('부회장', '부회장'),
-        ('팀장', '팀장'),
-        ('팀원', '팀원'),
-=======
         ('부회장','부회장'),
         ('팀장','팀장'),
         ('팀원','팀원'),
->>>>>>> 792c46e612bd8e588830e83107014b82eca01787
     )
     email = models.EmailField(unique=True, verbose_name='이메일')
     name = models.CharField(max_length=20,verbose_name = '이름')
