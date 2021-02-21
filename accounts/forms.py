@@ -10,7 +10,7 @@ from allauth.socialaccount.forms import SignupForm
 #         fields = ['name','email','phone','act_no']
 
 # sociallogin form
-class SocialAccountSignUpForm(fomrs.MdoelForm):
+class SocialAccountSignUpForm(forms.ModelForm):
     class Meta():
         model = MyUser
         fields = ['name', 'act_no','phone']

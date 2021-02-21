@@ -1,0 +1,65 @@
+body {
+
+}
+.task-manager{
+    height: 80%;
+}
+
+.img-container {
+    display: inline-block;
+    align-self: center;
+    margin: auto 0;
+}
+.sogangimg {
+    width: 250px;
+    height: auto;
+}
+.page-content .result-header{
+    font-size: 26px;
+    color: var(--main-color);
+    margin-top: 0;
+    text-align: center;
+   }
+.page-content .result-text{
+    font-size: 15px;
+    margin: 15px;
+    text-align: center;
+    line-height: 2.0;
+}
+
+@media screen and (max-width:767px) {
+    .page-content{
+        padding: 40px 20px 0 20px;
+      }
+      .page-content .result-header {
+        font-size: 15px;
+      }
+      .page-content .result-text {
+         font-size: 10px; 
+      }
+      .title{
+        font-size: 10px;
+      }
+      .sogangimg{
+        width: 150px;
+      }
+      .task-manager{
+        width: 90%;
+        height: auto;
+      }
+}
+
+@media (min-width: 768px) and (max-width: 1012px){
+    .page-content .result-header {
+        font-size: 20px;
+      }
+      .page-content .result-text {
+        font-size: 13px;
+    }
+      .task-manager{
+        height: auto;
+      }
+      .sogangimg {
+        width: 200px;
+    }
+}

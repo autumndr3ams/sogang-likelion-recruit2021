@@ -1,8 +1,43 @@
 {%extends 'recruit/layout.html' %}
 {%load static%}
 
+{%block extrahead%}
+<link rel="stylesheet" href="{% static 'css/sglioninfo.css' %}" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
+{% endblock %}
+
 {%block content%}
+<!-- 회장부회장출력 -->
+<main>
+  <p class="title">Who We Are</p>
+  <div class="infoContainer"> 
+     
+    <div class="row">
+      {% for manager in manager_list %} 
+      
+      <div class="person">
+        <div class="circle"></div>
+        <div class="info">
+          
+          <p class="name">{{manager.name}}</p>
+          <!-- <h6>{{manager.position}}</h6> -->
+          <p class="major">{{manager.first_major}}
+            {% if manager.second_major %}
+            <br>
+             <span>/</span> 
+            {{manager.second_major}}
+            {% endif %}
+          </p>
+          
+          
+        </div>
+        
+      </div>
 
-<!-- for문으로 운영진 정보 받아오기 -->
-
-{%endblock%}
+      
+      {%endfor%}  
+    </div>
+    
+  </div>
+</main>
+{% endblock %}
