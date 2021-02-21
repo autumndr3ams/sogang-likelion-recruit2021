@@ -25,7 +25,7 @@ p{
   width : 45%;
   display : flex;
   align-items: center;
-
+  place-content: center;
 }
 
 .slogan-img{
@@ -51,17 +51,21 @@ p{
   .code{
     width: 100%;
     margin-left: 0;
-    margin-top: 20%;
+    display: inline-block;
+    /* margin-top: 20%; */
   }
   .container{
     display: flex;
     flex-direction: column;
     margin-top: 0%;
     position : relative;
+    padding-left: 10%;
+    padding-right: 10%;
   }
   .container ::before{
     content:"";
     background-image: url('../images/slogan.png');
+    background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     position : absolute;
