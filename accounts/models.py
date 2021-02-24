@@ -3,6 +3,15 @@ from django.contrib.auth.models import AbstractBaseUser,BaseUserManager,Permissi
 import uuid
 from django.shortcuts import render, redirect
 # Create your models here.
+def set_profile_img_path(instance, filename):
+    name = filename.split('.')[0]
+    extension = filename.split('.')[-1]
+
+    path = f'profile_img/{instance.name}.{extension}'
+    print(path)
+    return f'user/{instance.name}.{extension}'
+
+    
 class MyUserManager(BaseUserManager):
     def _create_user(self, email, password=None, **kwargs):
         if not email:

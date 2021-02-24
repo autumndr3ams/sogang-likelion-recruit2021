@@ -28,3 +28,5 @@ urlpatterns = [
     path('accounts/',include('allauth.urls')),
     path('socialregister/', accounts.views.SocialregisterView.as_view(),name="socialregister"),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

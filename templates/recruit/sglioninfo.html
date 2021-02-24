@@ -17,7 +17,9 @@
       
       <div class="person">
         <div class="circle">
-          <img src="https://blog.kakaocdn.net/dn/bNkkUk/btqvIkACNgU/g8XsJN8SKDHCd0mUa8Pgc1/img.png">
+          {% if manager.profile_img is not null %}
+          <img src="../../uploads/user/{{manager.name}}.png">
+          {% endif %}
         </div>
         <div class="info">
           
