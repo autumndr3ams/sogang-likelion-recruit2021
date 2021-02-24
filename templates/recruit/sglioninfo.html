@@ -14,9 +14,15 @@
      
     <div class="row">
       {% for manager in manager_list %} 
-      
       <div class="person">
+        {%if manager.profile_img%}
+        <div class="circle" style="background-image: url(../../uploads/profile_img/{{manager.act_no}}기_{{manager.name}}.png);">
+        </div>
+        <!-- <img src="../../uploads/profile_img/{{manager.act_no}}기_{{manager.name}}.png"> -->
+        {%else%} 
         <div class="circle"></div>
+        {%endif%}
+        
         <div class="info">
           
           <p class="name">{{manager.name}}</p>
