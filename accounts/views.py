@@ -33,6 +33,6 @@ class SocialregisterView(View):
         return render(request,self.template_name, {'form':form})
 
 class SglionInfoView(ListView):
-    queryset = MyUser.objects.filter(is_manager=True)
+    queryset = MyUser.objects.filter(is_manager=True).order_by("-team", "position")
     context_object_name = 'manager_list'
     template_name = 'recruit/sglioninfo.html'

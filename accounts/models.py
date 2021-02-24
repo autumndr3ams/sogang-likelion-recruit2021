@@ -2,16 +2,13 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser,BaseUserManager,PermissionsMixin
 import uuid
 from django.shortcuts import render, redirect
-# Create your models here.
-def set_profile_img_path(instance, filename):
+
+def set_profile_img_path(instance,filename):
     name = filename.split('.')[0]
     extension = filename.split('.')[-1]
-
-    path = f'profile_img/{instance.name}.{extension}'
-    print(path)
-    return f'user/{instance.name}.{extension}'
-
     
+    return f'profile_img/{instance.act_no}기_{instance.name}.{extension}'
+
 class MyUserManager(BaseUserManager):
     def _create_user(self, email, password=None, **kwargs):
         if not email:
@@ -68,7 +65,10 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
     act_no = models.IntegerField(blank=True,null=True,verbose_name='활동기수')
     
     is_manager = models.BooleanField(default=False, verbose_name='운영진 여부')
-    profile_img = models.ImageField(blank=True, verbose_name='프로필이미지')
+    profile_img = models.ImageField(
+        blank=True,
+        upload_to=set_profile_img_path,
+        verbose_name='프로필이미지')
     team = models.CharField(max_length=20, choices = TEAM_CHOICES, verbose_name='팀')
     position = models.CharField(max_length = 20,choices = POSITION_CHOICES, verbose_name='직책')
     first_major = models.CharField(max_length=20,verbose_name='주전공')
