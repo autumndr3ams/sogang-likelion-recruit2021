@@ -6,9 +6,15 @@
 }
 .container{
   display : flex;
+  flex-direction: column;
   height: 90vh;
   max-width: none;
   /* max-width: -webkit-fill-available; */
+}
+.main{
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
 }
 .code{
   margin : auto 0;
@@ -159,6 +165,7 @@ svg{
   /* default size */
   .code {
     padding: 50px;
+    font-size: large;
   }
 }
 

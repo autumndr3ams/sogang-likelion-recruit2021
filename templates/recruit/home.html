@@ -2,6 +2,50 @@
 {% load static %}
 
 {% block extrahead %}
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+        window.onload = function () {
+            var elm = ".container";
+            $(elm).each(function (index) {
+                // 개별적으로 Wheel 이벤트 적용
+                $(this).on("mousewheel DOMMouseScroll", function (e) {
+                    e.preventDefault();
+                    var delta = 0;
+                    if (!event) event = window.event;
+                    if (event.wheelDelta) {
+                        delta = event.wheelDelta / 120;
+                        if (window.opera) delta = -delta;
+                    } 
+                    else if (event.detail)
+                        delta = -event.detail / 3;
+                    var moveTop = $(window).scrollTop();
+                    var elmSelecter = $(elm).eq(index);
+                    // 마우스휠을 위에서 아래로
+                    if (delta < 0) {
+                        if ($(elmSelecter).next() != undefined) {
+                            try{
+                                moveTop = $(elmSelecter).next().offset().top;
+                            }catch(e){}
+                        }
+                    // 마우스휠을 아래에서 위로
+                    } else {
+                        if ($(elmSelecter).prev() != undefined) {
+                            try{
+                                moveTop = $(elmSelecter).prev().offset().top;
+                            }catch(e){}
+                        }
+                    }
+                    // 화면 이동 0.8초(800)
+                    $("html,body").stop().animate({
+                        scrollTop: moveTop + 'px'
+                    }, {
+                        duration: 600, complete: function () {
+                        }
+                    });
+                });
+            });
+        }
+</script>
 {% endblock %}
 
 {% block content %}
@@ -12,31 +56,38 @@
 
 <body>
 <div class="container">
-        <div class="code">
-                <p><span style="color : yellow">while</span> 멋쟁이사자처럼 서강대학교</p>
-                <p><span class="tab">&#9;</span><span style="color : red;">print</span>("그대 서강의 자랑이듯 멋사 그대의 자랑이어라")</p>
-                <p><span class="tab">&#9;</span><span style="color : red;">print</span>("Be As Proud of Sogang As LikeLion Is Proud of You")</p>
-                <div class="apply">
-                        <a href="#" class="click">
-                                <span class="apply-text">멋사@서강 지원하러가기</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-hand-index-thumb" viewBox="0 0 16 16">
-                                        <path d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 0 0 1 0V6.435l.106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 1 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.118a.5.5 0 0 1-.447-.276l-1.232-2.465-2.512-4.185a.517.517 0 0 1 .809-.631l2.41 2.41A.5.5 0 0 0 6 9.5V1.75A.75.75 0 0 1 6.75 1zM8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v6.543L3.443 6.736A1.517 1.517 0 0 0 1.07 8.588l2.491 4.153 1.215 2.43A1.5 1.5 0 0 0 6.118 16h6.302a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5.114 5.114 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.632 2.632 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046l-.048.002zm2.094 2.025z"/>
-                                      </svg>
-
-                        </a>
-                </div>
-
-                <!-- <div class="bf-test-btn">
-                        <div class="bf-test-btn-1">
-                                <span style="color : white; font-size : 14px;">예비 개발자 성향 </span>
-                                <input id="bf-test" class="btn" type="button" value="확인하러가기" onclick="location.href='{% url 'bftest' %}'">
+        <div class="main">
+                <div class="code">
+                        <p><span style="color : yellow">while</span> 멋쟁이사자처럼 서강대학교</p>
+                        <p><span class="tab">&#9;</span><span style="color : red;">print</span>("그대 서강의 자랑이듯 멋사 그대의 자랑이어라")</p>
+                        <p><span class="tab">&#9;</span><span style="color : red;">print</span>("Be As Proud of Sogang As LikeLion Is Proud of You")</p>
+                        <div class="apply">
+                                <a target="_blank" rel="noopener noreferrer" href="https://apply.likelion.org/" class="click">
+                                        <span class="apply-text">멋사@서강 지원하러가기</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-hand-index-thumb" viewBox="0 0 16 16">
+                                                <path d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 0 0 1 0V6.435l.106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 1 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.118a.5.5 0 0 1-.447-.276l-1.232-2.465-2.512-4.185a.517.517 0 0 1 .809-.631l2.41 2.41A.5.5 0 0 0 6 9.5V1.75A.75.75 0 0 1 6.75 1zM8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v6.543L3.443 6.736A1.517 1.517 0 0 0 1.07 8.588l2.491 4.153 1.215 2.43A1.5 1.5 0 0 0 6.118 16h6.302a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5.114 5.114 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.632 2.632 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046l-.048.002zm2.094 2.025z"/>
+                                        </svg>
+                                </a>
                         </div>
-                </div> -->
-        </div>
-        <div class="hackyourlife">
-                <div class="hackyourlife-container">
-                <img class="slogan-img" src="{% static 'images/slogan.png' %}" />
                 </div>
+                <div class="hackyourlife">
+                        <div class="hackyourlife-container">
+                        <img class="slogan-img" src="{% static 'images/slogan.png' %}" />
+                        </div>
+                </div>
+        </div>
+        <div class="scroll" style="display: none;">
+            <p>scroll svg 넣을예정</p>
+        </div>
+</div>
+<div class="container">
+        <div class="code">
+                <p>모집일정 timeline</p>
+        </div>
+</div>
+<div class="container">
+        <div class="code">
+                <p>동아리 timeline</p>
         </div>
 </div>
 </body>
