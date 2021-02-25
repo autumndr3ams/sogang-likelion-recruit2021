@@ -42,7 +42,6 @@ body{
 .circle{
   width: 200px;
   height: 200px;
-  
   border-radius:50%;
   background: linear-gradient(to bottom, #FF9E1B, #ff0011);
   /* margin-top: 10px; */
@@ -51,7 +50,7 @@ body{
   width: 200px;
   height: 200px;
   border-radius:50%;
-  padding: 20px;
+  padding: 10px;
 }
 .info{
   text-align: center;
