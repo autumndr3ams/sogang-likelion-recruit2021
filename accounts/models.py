@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser,BaseUserManager,PermissionsMixin
 import uuid
+from django.contrib.auth.hashers import make_password
 from django.shortcuts import render, redirect
 
 def set_profile_img_path(instance,filename):
@@ -35,6 +36,21 @@ class MyUserManager(BaseUserManager):
         user = MyUser.objects.get(pk=user_pk)
         user.save()
         return user
+    
+    def create_dummy_user(self,email,password,**kwargs):
+        if not email:
+            raise ValueError('이메일은 필수입니다.')
+
+        # addr = email.split('@')[-1]
+        # if addr != 'likelion.org':
+        #     msg = '유효한 멋쟁이 사자처럼 이메일이 아닙니다.'
+        #     raise ValueError(msg)
+
+        user = self.model(email=self.normalize_email(email), **kwargs)
+
+        # hash함수로 비밀번호 설정
+        user.set_password(make_password(password))
+        user.save(using=self._db)
 
 class MyUser(AbstractBaseUser, PermissionsMixin):
     class Meta:
