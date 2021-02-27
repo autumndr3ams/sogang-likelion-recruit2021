@@ -3,48 +3,48 @@
 
 {% block extrahead %}
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script>
-        window.onload = function () {
-            var elm = ".container";
-            $(elm).each(function (index) {
-                // 개별적으로 Wheel 이벤트 적용
-                $(this).on("mousewheel DOMMouseScroll", function (e) {
-                    e.preventDefault();
-                    var delta = 0;
-                    if (!event) event = window.event;
-                    if (event.wheelDelta) {
-                        delta = event.wheelDelta / 120;
-                        if (window.opera) delta = -delta;
-                    } 
-                    else if (event.detail)
-                        delta = -event.detail / 3;
-                    var moveTop = $(window).scrollTop();
-                    var elmSelecter = $(elm).eq(index);
-                    // 마우스휠을 위에서 아래로
-                    if (delta < 0) {
-                        if ($(elmSelecter).next() != undefined) {
-                            try{
-                                moveTop = $(elmSelecter).next().offset().top;
-                            }catch(e){}
-                        }
-                    // 마우스휠을 아래에서 위로
-                    } else {
-                        if ($(elmSelecter).prev() != undefined) {
-                            try{
-                                moveTop = $(elmSelecter).prev().offset().top;
-                            }catch(e){}
-                        }
+<script type="text/javascript">
+    window.onload = function () {
+        var elm = ".container";
+        $(elm).each(function (index) {
+            // 개별적으로 Wheel 이벤트 적용
+            $(this).on("mousewheel DOMMouseScroll", function (e) {
+                e.preventDefault();
+                var delta = 0;
+                if (!event) event = window.event;
+                if (event.wheelDelta) {
+                    delta = event.wheelDelta / 120;
+                    if (window.opera) delta = -delta;
+                } 
+                else if (event.detail)
+                    delta = -event.detail / 3;
+                var moveTop = $(window).scrollTop();
+                var elmSelecter = $(elm).eq(index);
+                // 마우스휠을 위에서 아래로
+                if (delta < 0) {
+                    if ($(elmSelecter).next() != undefined) {
+                        try{
+                            moveTop = $(elmSelecter).next().offset().top;
+                        }catch(e){}
                     }
-                    // 화면 이동 0.8초(800)
-                    $("html,body").stop().animate({
-                        scrollTop: moveTop + 'px'
-                    }, {
-                        duration: 600, complete: function () {
-                        }
-                    });
+                // 마우스휠을 아래에서 위로
+                } else {
+                    if ($(elmSelecter).prev() != undefined) {
+                        try{
+                            moveTop = $(elmSelecter).prev().offset().top;
+                        }catch(e){}
+                    }
+                }
+                // 화면 이동 0.8초(800)
+                $("html,body").stop().animate({
+                    scrollTop: moveTop + 'px'
+                }, {
+                    duration: 600, complete: function () {
+                    }
                 });
             });
-        }
+        });
+    }
 </script>
 {% endblock %}
 
@@ -76,19 +76,94 @@
                         </div>
                 </div>
         </div>
-        <div class="scroll" style="display: none;">
-            <p>scroll svg 넣을예정</p>
+        <div class="scroll">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" version="1.1">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g fill="rgba(0,0,0,1)">
+                        <path d="M40,41.0074017 L40,41.0074017 L40,58.9925983 C40,64.5218355 44.4762336,69 50,69 C55.5234877,69 60,64.5203508 60,58.9925983 L60,41.0074017 C60,35.4781645 55.5237664,31 50,31 C44.4765123,31 40,35.4796492 40,41.0074017 L40,41.0074017 Z M38,41.0074017 C38,34.3758969 43.3711258,29 50,29 C56.627417,29 62,34.3726755 62,41.0074017 L62,58.9925983 C62,65.6241031 56.6288742,71 50,71 C43.372583,71 38,65.6273245 38,58.9925983 L38,41.0074017 L38,41.0074017 Z"></path>
+                        <path d="M49,36 L49,40 C49,40.5522847 49.4477153,41 50,41 C50.5522847,41 51,40.5522847 51,40 L51,36 C51,35.4477153 50.5522847,35 50,35 C49.4477153,35 49,35.4477153 49,36 L49,36 Z"></path>
+                        <path d="M50,81.9929939 L55.4998372,76.4931567 C55.8903615,76.1026324 56.5235265,76.1026324 56.9140508,76.4931567 C57.3045751,76.883681 57.3045751,77.516846 56.9140508,77.9073703 L50.7071068,84.1143143 C50.5118446,84.3095764 50.2559223,84.4072075 50,84.4072075 C49.7440777,84.4072075 49.4881554,84.3095764 49.2928932,84.1143143 L43.038379,77.8598002 C42.6478547,77.4692759 42.6478547,76.8361109 43.038379,76.4455866 C43.4289033,76.0550623 44.0620683,76.0550623 44.4525926,76.4455866 L50,81.9929939 Z" class="MouseScroll--chevron"></path>
+                    </g>
+                </g>
+            </svg>
         </div>
 </div>
 <div class="container">
-        <div class="code">
-                <p>모집일정 timeline</p>
+        <div class="timeline">
+            <div class="timeline-title">
+                <p>9기 아기사자 모집일정</p>
+            </div>
+            <div class="timeline-bar">
+                <div class="date">
+                    <div id="text1">2/22</div>
+                    <div id="text2">3/12</div>
+                    <div id="text3">3/15-3/17</div>
+                    <div id="text4">3/19</div>
+                    <div id="text5">3/22</div>
+                </div>
+                <div class="bar">
+                    <div id="text1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="8"/>
+                        </svg>
+                    </div>
+                    <div id="text2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="8"/>
+                        </svg>
+                    </div>
+                    <div id="text3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="8"/>
+                        </svg>
+                        {% comment %} <img src="../../static/images/circle1.png" width="30px;" style="z-index: 1;"> {% endcomment %}
+                    </div>
+                    <div id="text4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="8"/>
+                        </svg>                    
+                    </div>
+                    <div id="text5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="8"/>
+                        </svg>
+                    </div>
+                    <!-- <img src="../../static/images/home-color-bar.png" style="overflow: hidden; width: 100%;"> -->
+                </div>
+                <div class="content">
+                    <div id="text1">모집 시작</div>
+                    <div id="text2">23:59<br>모집마감</div>
+                    <div id="text3">면접</div>
+                    <div id="text4">최종합격자<br>발표</div>
+                    <div id="text5">OT</div>
+                </div>
+            </div>
         </div>
 </div>
 <div class="container">
-        <div class="code">
-                <p>동아리 timeline</p>
+    <div class="curriculum">
+        <div class="curriculum-title">
+            <p id="title">9기 교육 커리큘럼</p>
+            <p id="text">멋쟁이사자처럼 9기 아기사자는 총 N회의 세션을 통해 웹개발을 학습합니다.</p>
+            <p id="text">연합 해커톤, 복커톤 등의 다양한 이벤트를 통해 Learn by doing 개발자로 거듭납니다. </p>
         </div>
+        <div class="curriculum-content">
+            <div class="curriculum-bar">
+                <div id="html"><img src="../../static/images/html.png"></div>
+                <div id="css"><img src="../../static/images/css.png"></div>
+                <div id="django"><img src="../../static/images/django.png" style="width: 80%;"></div>
+                <div id="js"><img src="../../static/images/js.png"></div>
+                <div id="react"><img src="../../static/images/react.png"></div>
+                <div id="aws"><img src="../../static/images/aws.png"></div>
+
+            </div>
+            <div class="curriculum-img">
+                <div class="codelion">
+                    <img src="../../static/images/codelion.png" width="100%" height="auto">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 {% endblock %}
