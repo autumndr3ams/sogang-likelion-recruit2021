@@ -198,7 +198,20 @@ svg{
     .container .timeline .bar #text1,#text2,#text3,#text4,#text5{
       display: flex;
       justify-content: center;
+      background: none;
+      /* img */
     }
+
+    .container .timeline .bar svg{
+      filter: none;
+      stroke: none;
+      margin: 0;
+    }
+    .container .timeline .bar #text1 svg{ fill: #FF9E1B;}
+    .container .timeline .bar #text2 svg{ fill: #FF9E1B;}
+    .container .timeline .bar #text3 svg{ fill: #FF9E1B;}
+    .container .timeline .bar #text4 svg{ fill: #FF9E1B;}
+    .container .timeline .bar #text5 svg{ fill: #FF9E1B;}
 
   .container .timeline .date{
     display: flex;
@@ -282,6 +295,9 @@ svg{
   }
   .container .timeline .content{
     font-size: 15px;
+  }
+  circle{
+    r:4;
   }
 }
 
