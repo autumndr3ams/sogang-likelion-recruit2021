@@ -43,7 +43,7 @@ body{
   width: 200px;
   height: 200px;
   border-radius:50%;
-  background: linear-gradient(to bottom, #FF9E1B, #ff0011);
+  background: linear-gradient(to bottom, #ffffff, #000000);
   /* margin-top: 10px; */
 }
 .circle img{
@@ -90,7 +90,7 @@ br{
     width: 100px;
     height: 100px;
     border-radius:50%;
-    background: linear-gradient(to bottom, #FF9E1B, #ff0011);
+
     /* margin-top: 10px; */
   }
   .circle img{
