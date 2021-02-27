@@ -4,17 +4,33 @@
   font-family: 'DOSGothic';
   background-color: black;
 }
+
+/* mainpage CSS start */
 .container{
   display : flex;
   flex-direction: column;
   height: 90vh;
+  padding-top: 10vh;
   max-width: none;
-  /* max-width: -webkit-fill-available; */
 }
-.main{
+.container .main{
   display: flex;
   flex-direction: row;
-  height: 90vh;
+  height: 90%;
+}
+.container .scroll{
+  height: 10%;
+  position: relative;
+  left: 50%;
+  bottom: 25px;
+  width: 100px;
+  margin: 0 0 0 -50px;
+  z-index: 2;
+  color: white;
+  cursor: pointer;
+}
+.container .scroll svg {
+  transform: translate(0px);
 }
 .code{
   margin : auto 0;
@@ -38,7 +54,6 @@ p{
 .slogan-img{
   display : inline-block;
   width: 100%;
-  /* width: 450px; */
 }
 .bf-test-btn{
   display: flex;
@@ -58,6 +73,16 @@ p{
     justify-content: center;
 }
 
+.apply-text{
+  position: relative;
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 0.05rem;
+  vertical-align: middle;
+  color: white;
+  background-color: rgba(0,0,0,0);
+}
+
 a{
   color: inherit;
 }
@@ -71,29 +96,32 @@ a, a:hover, a:active, a:visited, a:focus {
   margin: 10px;
   transition: all .2s ease;
 }
-.click::before{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  border-radius: 40px;
-  /* background-color: #FFAB9D; */
-  background: linear-gradient(to bottom, #FF9E1B, #ff0011);
-  width: 70px;
-  height: 70px;
+  .click::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 40px;
+    /* background-color: #FFAB9D; */
+    background: linear-gradient(to bottom, #FF9E1B, #ff0011);
+    width: 70px;
+    height: 70px;
 
-  transition: all .3s ease;
-}
-.apply-text{
-  position: relative;
-  font-size: 25px;
-  font-weight: 900;
-  letter-spacing: 0.05rem;
-  vertical-align: middle;
-  color: white;
-  background-color: rgba(0,0,0,0);
-}
+    transition: all .3s ease;
+  }
+  .click:hover{
+    transform: translateX(0);
+  }
+  .click:hover::before{
+    width: 100%;
+    /* background: rgba(#FFAB9D,1); */
+    background: linear-gradient(to bottom, #FF9E1B, #ff0011);;
+  }
+  .click:active{
+    transform: scale(.97);
+  }
+
 svg{
   position: relative;
   top: 0;
@@ -109,17 +137,91 @@ svg{
   filter: invert(1);
 
 }
-.click:hover{
-  transform: translateX(0);
+
+/* mainpage CSS end */
+
+/* timeline CSS start*/
+.container .timeline{
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  position: relative;
 }
-.click:hover::before{
-  width: 100%;
-  /* background: rgba(#FFAB9D,1); */
-  background: linear-gradient(to bottom, #FF9E1B, #ff0011);;
-}
-.click:active{
-  transform: scale(.97);
-}
+  .container .timeline::before{
+    content: "";
+    background-image: url(../images/logo9.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 70vh auto;
+    position: absolute;
+    opacity : 0.1;
+    top : 10vh;
+    bottom : 0;
+    left : 0;
+    right : 10vh;
+  }
+  .container .timeline .timeline-title{
+    padding-bottom: 20vh;
+    padding-left: 10vh;
+    padding-top: 5vh;
+    font-size: 40px;
+  }
+  .container .timeline .timeline-under{
+    display: flex;
+    flex-direction: column;
+    font-size: 40px;
+    color: white;
+  }
+  .container .timeline .bar{
+    width: 100%;
+    height: 10px;
+    margin: 30px 0;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+    .container .timeline .bar::before{
+      content: "";
+      background-image: url(../images/home-color-bar.png);
+      background-size: contain;
+      position: absolute;
+      opacity : 1;
+      top : 0;
+      bottom : 0;
+      left : 0;
+      right : 0;
+    }
+
+    .container .timeline .bar #text1,#text2,#text3,#text4,#text5{
+      display: flex;
+      justify-content: center;
+    }
+
+  .container .timeline .date{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 35px;
+    text-align: center;
+  }
+  .container .timeline .content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 25px;
+    align-items: center;
+    text-align: center;
+  }
+
+  #text1{ width: 10%; }
+  #text2{ width: 10%; }
+  #text3{ width: 15%; }
+  #text4{ width: 10%; }
+  #text5{ width: 10%; }
+/* timeline CSS end */
 
 @media screen and (max-width: 1012px){
   .code{
@@ -166,6 +268,15 @@ svg{
   .code {
     padding: 50px;
     font-size: large;
+  }
+  .container .timeline .timeline-title p{
+    font-size: 35px;
+  }
+  .container .timeline .date{
+    font-size: 25px;
+  }
+  .container .timeline .content{
+    font-size: 20px;
   }
 }
 
