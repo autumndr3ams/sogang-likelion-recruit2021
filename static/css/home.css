@@ -217,9 +217,9 @@ svg{
   }
 
   #text1{ width: 10%; }
-  #text2{ width: 10%; }
+  #text2{ width: 15%; }
   #text3{ width: 15%; }
-  #text4{ width: 10%; }
+  #text4{ width: 15%; }
   #text5{ width: 10%; }
 /* timeline CSS end */
 
@@ -260,6 +260,28 @@ svg{
   .tab {
     white-space: unset;
     margin-right : 20px;
+  }
+  .container .timeline{
+    position: initial;
+  }
+  .container .timeline::before{
+    background-image:none;
+  }
+  .container .timeline .timeline-title{
+    /* padding: 5vh 0 10vh; */
+    padding-left: 0;
+    padding-top: 10vh;
+    padding-bottom: 15vh;
+  }
+  .container .timeline .timeline-title p{
+    font-size: 30px;
+    text-align: center;
+  }
+  .container .timeline .date{
+    font-size: 20px;
+  }
+  .container .timeline .content{
+    font-size: 15px;
   }
 }
 
