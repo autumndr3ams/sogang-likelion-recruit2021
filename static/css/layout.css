@@ -18,6 +18,9 @@ header{
     background-color: black!important;
 }
 /* 상단바 로고 */
+.navbar-brand {
+    margin-right: 0;
+}
 .navbar-brand > img {
     width: 100px;
     height: auto;
@@ -26,6 +29,14 @@ header{
 .navbar-collapse > ul.navbar-nav.mr-auto{
     display: flex;
     margin: 0 auto;
+}
+/* 토글바 */
+.navbar-dark .navbar-toggler {
+    border: none;
+}
+.navbar-dark .navbar-toggler:focus{
+    text-decoration: none;
+    outline: none;
 }
 
 /* 상단바 텍스트 */
