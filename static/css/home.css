@@ -210,10 +210,10 @@ svg{
       margin: 0;
     }
     .container .timeline .bar #text1 svg{ fill: #FF9E1B;}
-    .container .timeline .bar #text2 svg{ fill: #FF9E1B;}
-    .container .timeline .bar #text3 svg{ fill: #FF9E1B;}
-    .container .timeline .bar #text4 svg{ fill: #FF9E1B;}
-    .container .timeline .bar #text5 svg{ fill: #FF9E1B;}
+    .container .timeline .bar #text2 svg{ fill: #C56A36;}
+    .container .timeline .bar #text3 svg{ fill: #A42F28;}
+    .container .timeline .bar #text4 svg{ fill: #652941;}
+    .container .timeline .bar #text5 svg{ fill: #33295B;}
 
   .container .timeline .date{
     display: flex;
