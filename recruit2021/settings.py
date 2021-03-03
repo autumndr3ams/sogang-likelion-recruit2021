@@ -37,7 +37,8 @@ OS_ENVIRON_KEY = get_secret("OS_ENVIRON")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    ".ap-northeast-2.compute.amazonaws.com"
+    ".ap-northeast-2.compute.amazonaws.com",
+    ".soganglikelion.com"
 ]
 
 
