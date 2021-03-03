@@ -47,7 +47,6 @@ input[type="button"]:active{
     width: 100%;
     height: 100vh;
     padding: 20px;
-    font-size: 12px;
     background-color: black;
     background-image: url('../images/bftest-background.png');
     background-position: center;
@@ -79,7 +78,9 @@ input[type="button"]:active{
   .actions {
     padding: 12px;
     display: flex;
-    justify-content: space-between; }
+    justify-content: space-between; 
+    font-size: 12px;
+  }
   
   .circle {
     border-radius: 50%;
