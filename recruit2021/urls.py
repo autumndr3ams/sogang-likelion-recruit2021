@@ -17,6 +17,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url
 import recruit.views
 import accounts.views
 
@@ -29,6 +30,7 @@ urlpatterns = [
     path('sglioninfo/', accounts.views.SglionInfoView.as_view(), name="sglioninfo"),
     path('accounts/',include('allauth.urls')),
     path('socialregister/', accounts.views.SocialregisterView.as_view(),name="socialregister"),
+    url(r'^traffic/', include('traffic_monitor.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

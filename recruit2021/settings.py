@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'recruit',
     'accounts',
+    'django_crontab',
+    'traffic_monitor',
     'django.contrib.sites',  # allauth
 
 
@@ -193,3 +195,5 @@ SITE_ID=1
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+TRAFFIC_MONITOR_INTERFACE_NAMES = 'eth0,lo'
