@@ -34,7 +34,7 @@ SECRET_KEY = get_secret("DJANGO_SECRET_KEY")
 OS_ENVIRON_KEY = get_secret("OS_ENVIRON")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     ".ap-northeast-2.compute.amazonaws.com",
