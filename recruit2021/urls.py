@@ -31,4 +31,7 @@ urlpatterns = [
     path('socialregister/', accounts.views.SocialregisterView.as_view(),name="socialregister"),
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpattern+=url(r'^media/(?P<path>.\*)$', serve, {
+    'document_root': settings.MEDIA_ROOT,
+})
