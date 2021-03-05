@@ -197,3 +197,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 TRAFFIC_MONITOR_INTERFACE_NAMES = 'eth0,lo'
+CRONJOBS = [
+    ('*/5 * * * *', 'traffic_monitor.tools.read_bytes', '>> /var/log/cronjob.log'),
+]
