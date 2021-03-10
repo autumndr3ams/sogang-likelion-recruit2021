@@ -60,6 +60,8 @@ INSTALLED_APPS = [
 
     # excel import&export
     'import_export',
+
+    'apply',
 ]
 
 MIDDLEWARE = [

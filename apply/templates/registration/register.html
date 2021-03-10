@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>home</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+  <style type="text/css">
+    *{
+      font-family: 'NanumSquare', sans-serif !important;
+      box-sizing: border-box;
+    }
+    main{
+      padding-right: 30px;
+      padding-left : 30px;
+      padding-top : 30px;
+    }
+    p{
+      text-align: center;
+    }
+    input{
+      display: block;
+      width : 300px;
+      height: 50px;
+      text-align: center;
+      margin: 0 auto;
+    }
+    .btn{
+      display : block;
+      width : 100px;
+      height : 30px;
+      text-align: center;
+      margin: 0 auto;
+      font-size: 16px;
+      font-weight: 100;
+      font-style: italic;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: block;
+      background: none;
+      background-color: lightslategray;
+      color: white;
+      vertical-align: middle;
+      position: relative;
+      z-index: 1;
+      backface-visibility: hidden;
+      -moz-osx-font-smoothing: grayscale;
+      width: 200px;
+      overflow: hidden;
+      padding: 0;
+      border: 1px solid;
+    }
+    a:hover,a:visited{
+      color : white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p>면접 시간 선택을 위하여 이름과 전화번호를 입력해주세요.</p>
+    <form action="{% url 'interviewselect' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+        <!-- <input type="string" name="name" placeholder="이름">
+        <br>
+        <input type="number" name="phone" placeholder="전화번호 ex)01012345678">
+        <br> -->
+        <a href="{% url 'interviewselect' %}"><button class="btn" type="submit" >면접 시간 선택</button></a>
+    </form>
+  </main>
+</body>
+</html>

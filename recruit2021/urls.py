@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 import recruit.views
 import accounts.views
+import apply.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +30,9 @@ urlpatterns = [
     path('sglioninfo/', accounts.views.SglionInfoView.as_view(), name="sglioninfo"),
     path('accounts/',include('allauth.urls')),
     path('socialregister/', accounts.views.SocialregisterView.as_view(),name="socialregister"),
+    path('registration/register/', apply.views.register, name="register"),
+    path('interviewselect/', recruit.views.InterviewSelectView.as_view(), name="interviewselect"),
+    path('interviewresult/', recruit.views.InterviewResultView.as_view(), name="interviewresult"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -68,3 +68,18 @@ class HistoryView(View):
 class SglionInfoView(View):
     def get(self, request):
         return render(request,'recruit/sglioninfo.html')
+
+#면접 시간 조정 페이지 뷰
+# class InterviewHomeView(View) :
+#     def get(self, request) :
+#         return render(request, 'recruit/interview-home.html')
+
+class InterviewSelectView(View) :
+    def get(self, request) :
+        name = request.GET['name']
+        return render(request, 'recruit/interview-select.html',{'name' : name})
+
+class InterviewResultView(View) :
+    def get(self, request) :
+        time = get_object_or_404(Content,pk=index)
+        return render(request, 'recruit/interview-result.html',{'name' : name})
