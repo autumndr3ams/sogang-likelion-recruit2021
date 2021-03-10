@@ -34,9 +34,12 @@ SECRET_KEY = get_secret("DJANGO_SECRET_KEY")
 OS_ENVIRON_KEY = get_secret("OS_ENVIRON")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    ".ap-northeast-2.compute.amazonaws.com",
+    ".soganglikelion.com"
+]
 
 
 # Application definition
@@ -50,6 +53,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'recruit',
     'accounts',
+    'apply',
+    'django_crontab',
+    'traffic_monitor',
     'django.contrib.sites',  # allauth
 
 
@@ -107,14 +113,14 @@ DATABASES = {
     #    'ENGINE': 'django.db.backends.sqlite3',
     #    'NAME': os.path.join(BASE_DIR, 'db_sqlite3'),
     # }  
-     'default': {
-         'ENGINE': 'django.db.backends.postgresql',
-         'NAME': OS_ENVIRON_KEY['DATABASE']['NAME'],
-         'USER': OS_ENVIRON_KEY['DATABASE']['USER'],
-         'PASSWORD': OS_ENVIRON_KEY['DATABASE']['PASSWORD'],
-         'HOST': OS_ENVIRON_KEY['DATABASE']['HOST'],
-         'PORT': '5432',
-     }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': OS_ENVIRON_KEY['DATABASE']['NAME'],
+        'USER': OS_ENVIRON_KEY['DATABASE']['USER'],
+        'PASSWORD': OS_ENVIRON_KEY['DATABASE']['PASSWORD'],
+        'HOST': OS_ENVIRON_KEY['DATABASE']['HOST'],
+        'PORT': '5432',
+    }
 }
 
 
@@ -142,7 +148,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
@@ -154,13 +160,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR,'static'),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR,'static'),
+# )
 
-MEDIA_URL = '/uploads/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'uploads')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -190,3 +195,11 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SITE_ID=1
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+TRAFFIC_MONITOR_INTERFACE_NAMES = 'eth0,lo'
+CRONJOBS = [
+    ('*/5 * * * *', 'traffic_monitor.tools.read_bytes', '>> /var/log/cronjob.log'),
+]
