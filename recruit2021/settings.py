@@ -37,7 +37,6 @@ OS_ENVIRON_KEY = get_secret("OS_ENVIRON")
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "localhost",############이거
     ".ap-northeast-2.compute.amazonaws.com",
     ".soganglikelion.com"
 ]
@@ -54,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'recruit',
     'accounts',
+    'apply',
     'django_crontab',
     'traffic_monitor',
     'django.contrib.sites',  # allauth
@@ -146,7 +146,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
