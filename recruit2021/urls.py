@@ -31,7 +31,7 @@ urlpatterns = [
     path('sglioninfo/', accounts.views.SglionInfoView.as_view(), name="sglioninfo"),
     path('accounts/',include('allauth.urls')),
     path('socialregister/', accounts.views.SocialregisterView.as_view(),name="socialregister"),
-    path('interviewselect/', recruit.views.ApplyView.as_view(),name='interviewselect'),
+    path('interviewhome/', apply.views.ApplyHomeView.as_view(),name='interviewhome'),
     url(r'^traffic/', include('traffic_monitor.urls')),
 ]
 if settings.DEBUG:
