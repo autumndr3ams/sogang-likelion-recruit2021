@@ -7,26 +7,15 @@ from django.contrib.auth import update_session_auth_hash
 from .models import Apply
 from .forms import ApplyForm
 
-class ApplyHomeView(View):
+class ApplyView(View):
     form_class = ApplyForm
-    template_name = 'recruit/interview-home.html'
+    # initial = {'key':'value'}
+    template_name = 'recruit/intervew-home.html'
     def get(self, request):
-        return render(request,'recruit/interview-home.html')
+        form = self.form_class()
+        return render(request, self.template_name, {'form' : form})
     def post(self, request):
-        form = self.form_class(request.POST)
+        form = self.form_class(request.POSTe)
         if form.is_valid():
-            return redirect('recruit/interviewselect')
-        return render(request,self.template_name,{'form':form})
-
-# class ApplyView(View):
-#     form_class = ApplyForm
-#     # initial = {'key':'value'}
-#     template_name = 'recruit/intervew-home.html'
-#     def get(self, request):
-#         form = self.form_class()
-#         return render(request, self.template_name, {'form' : form})
-#     def post(self, request):
-#         form = self.form_class(request.POST)
-#         if form.is_valid():
-#             return redirect('recruit/interview-select')
-#         return render(request,self.template_name, {'form':form})
+            return redirect('recruit/interview-select')
+        return render(request,self.template_name, {'form':form})
