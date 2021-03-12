@@ -18,15 +18,3 @@ class ApplyHomeView(View):
             return redirect('recruit/interviewselect')
         return render(request,self.template_name,{'form':form})
 
-# class ApplyView(View):
-#     form_class = ApplyForm
-#     # initial = {'key':'value'}
-#     template_name = 'recruit/intervew-home.html'
-#     def get(self, request):
-#         form = self.form_class()
-#         return render(request, self.template_name, {'form' : form})
-#     def post(self, request):
-#         form = self.form_class(request.POST)
-#         if form.is_valid():
-#             return redirect('recruit/interview-select')
-#         return render(request,self.template_name, {'form':form})
